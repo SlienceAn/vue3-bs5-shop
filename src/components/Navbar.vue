@@ -8,46 +8,48 @@
             {{ value.name }}
           </router-link>
         </li>
-        <font-icon icon="user-secret" style="font-size:2rem"/>
+        <font-icon icon="shopping-cart" style="font-size: 1rem;" />
       </ul>
     </div>
   </nav>
 </template>
 
 <script>
+import { reactive } from "vue";
 export default {
   name: "Navbar",
-  data() {
+  setup() {
+    const router = reactive([
+      {
+        path: "/",
+        name: "Home",
+      },
+      {
+        path: "/Shop",
+        name: "Shop",
+      },
+      {
+        path: "/Blog",
+        name: "Blog",
+      },
+      {
+        path: "/About",
+        name: "About",
+      },
+      {
+        path: "/Connect",
+        name: "Contact",
+      },
+    ]);
     return {
-      router: [
-        {
-          path: "/",
-          name: "Home",
-        },
-        {
-          path: "/Shop",
-          name: "Shop",
-        },
-        {
-          path: "/Blog",
-          name: "Blog",
-        },
-        {
-          path: "/About",
-          name: "About",
-        },
-        {
-          path: "/Connect",
-          name: "Contact",
-        },
-      ],
+      router,
     };
   },
 };
 </script>
 
 <style scoped>
-nav{
+nav {
   background: rgb(211, 209, 209);
 }
 ul {

@@ -2,11 +2,9 @@
   <div class="d-flex flex-column">
     <div class="box">
       <Navbar />
-      <div class="container">
         <router-view />
-      </div>
     </div>
-    <Footer />
+    <Footer />  
   </div>
 </template>
 

@@ -4,16 +4,34 @@ import router from './route'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-import { faFacebookSquare, faInstagram, faTwitterSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
-library.add(
-    faUserSecret,
+import { faShoppingCart, faStar } from '@fortawesome/free-solid-svg-icons'
+import {
     faFacebookSquare,
     faInstagram,
     faTwitterSquare,
-    faLinkedin
+    faLinkedin,
+    faYoutube,
+    faGooglePlay,
+    faApple,
+    faCcVisa,
+    faCcApplePay,
+    faCcMastercard
+} from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(
+    faShoppingCart,
+    faFacebookSquare,
+    faInstagram,
+    faTwitterSquare,
+    faLinkedin,
+    faYoutube,
+    faApple,
+    faGooglePlay,
+    faCcVisa,
+    faCcApplePay,
+    faCcMastercard,
+    faStar
 )
 
 const app = createApp(App)

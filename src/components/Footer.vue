@@ -52,7 +52,7 @@
             v-for="i in icons"
             :key="i"
             :icon="['fab', i]"
-            style="font-size: 2rem"
+            style="font-size: 1.5rem"
           />
         </div>
       </div>
@@ -76,12 +76,26 @@
         <h5>
           <strong>Install App</strong>
         </h5>
-        <div>From App Store on Google Play</div>
+        <div class="text-gray">From App Store on Google Play</div>
         <div class="d-flex gap-2 mt-2 mb-2">
-          <button class="btn btn-outline-dark">Apple</button>
-          <button class="btn btn-outline-dark">Google Play</button>
+          <button class="btn btn-outline-dark d-flex gap-2">
+            <font-icon :icon="['fab', 'apple']" style="font-size: 1.5rem" />
+            <span>Apple</span>
+          </button>
+          <button class="btn btn-outline-success d-flex gap-2">
+            <font-icon
+              :icon="['fab', 'google-play']"
+              style="font-size: 1.5rem"
+            />
+            <span>Google Play</span>
+          </button>
         </div>
-        <div>Payment</div>
+        <p class="text-gray">Payment</p>
+        <div class="d-flex gap-2">
+          <font-icon :icon="['fab', 'cc-visa']" style="font-size: 2.5rem" />
+          <font-icon :icon="['fab', 'cc-apple-pay']" style="font-size: 2.5rem" />
+          <font-icon :icon="['fab', 'cc-mastercard']" style="font-size: 2.5rem" />
+        </div>
       </div>
     </div>
     <div class="footer-bottom py-2 w-100">
@@ -91,32 +105,37 @@
 </template>
 
 <script>
-import { onMounted } from "vue";
+import { reactive } from "vue";
 export default {
   name: "Footer",
-  data() {
-    return {
-      aboutList: [
-        "About us",
-        "Delivery information",
-        "Privocy Policy",
-        "Terms & Conditions",
-        "Connect us",
-      ],
-      accountList: [
-        "Sign in",
-        "View Cart",
-        "My Wishlist",
-        "Trock My Order",
-        "Help",
-      ],
-      icons: ["facebook-square", "instagram", "twitter-square", "linkedin"],
-    };
-  },
   setup() {
-    onMounted(() => {
-      console.log("mounted");
-    });
+    const aboutList = reactive([
+      "About us",
+      "Delivery information",
+      "Privocy Policy",
+      "Terms & Conditions",
+      "Connect us",
+    ]);
+    const accountList = reactive([
+      "Sign in",
+      "View Cart",
+      "My Wishlist",
+      "Trock My Order",
+      "Help",
+    ]);
+    const icons = reactive([
+      "facebook-square",
+      "instagram",
+      "twitter-square",
+      "linkedin",
+      "youtube",
+    ]);
+
+    return {
+      aboutList,
+      accountList,
+      icons,
+    };
   },
 };
 </script>
