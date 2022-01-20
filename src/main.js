@@ -4,7 +4,13 @@ import router from './route'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faShoppingCart, faStar } from '@fortawesome/free-solid-svg-icons'
+import {
+    faShoppingCart,
+    faStar,
+    faPhone,
+    faInfo,
+    faCalendar,
+} from '@fortawesome/free-solid-svg-icons'
 import {
     faFacebookSquare,
     faInstagram,
@@ -15,7 +21,7 @@ import {
     faApple,
     faCcVisa,
     faCcApplePay,
-    faCcMastercard
+    faCcMastercard,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -31,7 +37,10 @@ library.add(
     faCcVisa,
     faCcApplePay,
     faCcMastercard,
-    faStar
+    faStar,
+    faPhone,
+    faInfo,
+    faCalendar,
 )
 
 const app = createApp(App)
