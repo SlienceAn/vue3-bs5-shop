@@ -4,6 +4,8 @@ import Shop from '../components/content/Shop.vue'
 import Connect from '../components/content/Connect.vue'
 import Blog from '../components/content/Blog.vue'
 import About from '../components/content/About.vue'
+import Cart from '../components/content/Cart.vue'
+import Production from '../components/content/Production.vue'
 
 const routes = [
     {
@@ -25,6 +27,14 @@ const routes = [
     {
         path: '/Blog',
         component: Blog
+    },
+    {
+        path: '/Cart',
+        component: Cart
+    },
+    {
+        path: '/Production',
+        component: Production
     }
 ]
 

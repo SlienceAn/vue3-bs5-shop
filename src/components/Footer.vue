@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="footer-body container row m-auto">
-      <div class="col-md-4 py-5 px-0">
+      <div class="col-md-6 col-lg-4 py-5 px-0">
         <div class="mb-2">
           <img src="../assets/logo.png" alt="missing" width="30" />
         </div>
@@ -56,7 +56,7 @@
           />
         </div>
       </div>
-      <div class="col-md-3 py-5 px-0">
+      <div class="col-md-6 col-lg-2 py-5 px-0">
         <h5>
           <strong>About</strong>
         </h5>
@@ -64,7 +64,7 @@
           {{ val }}
         </div>
       </div>
-      <div class="col-md-2 py-5 px-0">
+      <div class="col-md-6 col-lg-2 py-5 px-0">
         <h5>
           <strong>My Account</strong>
         </h5>
@@ -72,7 +72,7 @@
           {{ val }}
         </div>
       </div>
-      <div class="col-md-3 py-5 px-0">
+      <div class="col-md-6 col-lg-4 py-5 px-0">
         <h5>
           <strong>Install App</strong>
         </h5>
