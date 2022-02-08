@@ -10,6 +10,10 @@ import {
     faPhone,
     faInfo,
     faCalendar,
+    faBullhorn,
+    faGlobe,
+    faTags,
+    faPenAlt
 } from '@fortawesome/free-solid-svg-icons'
 import {
     faFacebookSquare,
@@ -41,6 +45,10 @@ library.add(
     faPhone,
     faInfo,
     faCalendar,
+    faBullhorn,
+    faGlobe,
+    faTags,
+    faPenAlt
 )
 
 const app = createApp(App)

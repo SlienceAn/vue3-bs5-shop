@@ -8,7 +8,9 @@
             {{ value.name }}
           </router-link>
         </li>
-        <font-icon icon="shopping-cart" style="font-size: 1rem;" />
+        <router-link to="/Cart">
+          <font-icon icon="shopping-cart" style="font-size: 1rem" />
+        </router-link>
       </ul>
     </div>
   </nav>
