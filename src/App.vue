@@ -2,7 +2,9 @@
   <div class="d-flex flex-column">
     <div class="box">
       <Navbar />
-      <router-view />
+      <transition>
+        <router-view />
+      </transition>
     </div>
     <Footer />
   </div>
@@ -11,11 +13,16 @@
 <script>
 import Navbar from "./components/Navbar.vue";
 import Footer from "./components/Footer.vue";
+import { provide, reactive } from "vue";
 export default {
   name: "App",
   components: {
     Navbar,
     Footer,
+  },
+  setup() {
+    const cartData = reactive([]);
+    provide("cartData", cartData);
   },
 };
 </script>

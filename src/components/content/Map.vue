@@ -1,34 +1,40 @@
 <template>
-  <div class="map-container" id="map-container" />
+  <l-map style="height: 50vh">
+    <l-geo-json :geojson="geojson" :options="geojsonOptions" />
+  </l-map>
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
+//地圖bug
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
+import { LMap, LGeoJson } from "@vue-leaflet/vue-leaflet";
 export default {
   name: "Map",
-  //地圖沒出來啊幹..
-  setup() {
-    let map = ref(null);
-    let url = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
-    const createMap = (divId, options) => {
-      let map = L.map(divId, options);
-      return map;
-    };
-    const createTileLayer = (map, url, options) => {
-      let tileLayer = L.tileLayer(url, options);
-      tileLayer.addTo(map);
-      return tileLayer;
-    };
-    onMounted(() => {
-      map = createMap("map-container");
-      createTileLayer(map, url, { maxZoom: 19 });
-    });
+  components: {
+    LMap,
+    LGeoJson,
+  },
+  data() {
     return {
-      map,
-      url,
+      geojson: {
+        type: "FeatureCollection",
+        features: [
+          // ...
+        ],
+      },
+      geojsonOptions: {
+        // Options that don't rely on Leaflet methods.
+      },
     };
+  },
+  async beforeMount() {
+    // HERE is where to load Leaflet components!
+    const { circleMarker } = await import("leaflet/dist/leaflet-src.esm");
+
+    // And now the Leaflet circleMarker function can be used by the options:
+    this.geojsonOptions.pointToLayer = (feature, latLng) =>
+      circleMarker(latLng, { radius: 8 });
+    this.mapIsReady = true;
   },
 };
 </script>

@@ -14,7 +14,7 @@
       :key="value.id"
       class="col-sm-12 col-md-3 mb-4"
     >
-      <Card :shopInfo="value" />
+      <Card :shopInfo="value" @click="postData(value)" />
     </div>
   </div>
   <div class="banner w-100 text-center py-5 text-white">
@@ -32,27 +32,12 @@
       Summer Collection New Modren Design
     </p>
   </div>
-  <div class="shopList row mt-0 mb-0 m-auto m-auto container">
-    <div
-      v-for="value in shopInfo"
-      :key="value.id"
-      class="col-sm-12 col-md-3 mb-4"
-    >
-      <Card :shopInfo="value" />
-    </div>
-  </div>
-  <div class="banner-card container">
-    <div class="d-flex">
-      <div class="col">1</div>
-      <div class="col">2</div>
-    </div>
-    <div class="d-flex"></div>
-  </div>
 </template>
 
 <script>
 import Card from "../Card.vue";
 import { reactive, onMounted } from "vue";
+import { useRouter } from "vue-router";
 export default {
   name: "Home",
   components: {
@@ -60,6 +45,9 @@ export default {
   },
   setup() {
     const shopInfo = reactive([]);
+    const router = useRouter();
+    // const route = useRoute();
+
     onMounted(() => {
       for (let i = 0; i < 9; i++) {
         shopInfo.push({
@@ -71,8 +59,17 @@ export default {
         });
       }
     });
+    let postData = (val) => {
+      router.push({
+        name: "Production",
+        query: {
+          ...val,
+        },
+      });
+    };
     return {
       shopInfo,
+      postData,
     };
   },
 };
@@ -84,5 +81,9 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+.shopList a {
+  text-decoration: none;
+  color: #333;
 }
 </style>

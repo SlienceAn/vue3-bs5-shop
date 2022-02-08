@@ -1,5 +1,10 @@
 <template>
-  <div class="container">Production</div>
+  <div class="container">
+    <div class="d-flex">
+        
+    </div>
+    <div></div>
+  </div>
 </template>
 
 <script>

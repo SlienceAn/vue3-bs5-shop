@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar d-flex justify-content-between">
+  <nav class="navbar d-flex justify-content-between position-fixed">
     <div class="container">
       <img src="../assets/logo.png" alt="missing" width="50" />
       <ul class="d-flex p-0 align-items-center">
@@ -53,6 +53,8 @@ export default {
 <style scoped>
 nav {
   background: rgb(211, 209, 209);
+  z-index: 99;
+  width: 100%;
 }
 ul {
   list-style: none;
