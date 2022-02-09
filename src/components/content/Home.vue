@@ -1,7 +1,5 @@
 <template>
-  <div class="w-100 big-banner">
-
-  </div>
+  <div class="w-100 big-banner"></div>
   <div class="d-flex container flex-nowrap">
     <div class="col" v-for="i in 6" :key="i"></div>
   </div>
@@ -36,16 +34,19 @@
     </p>
   </div>
   <div class="grid"></div>
+  <Modal />
 </template>
 
 <script>
 import Card from "../Card.vue";
 import { reactive, onMounted } from "vue";
 import { useRouter } from "vue-router";
+import Modal from "../Modal.vue";
 export default {
   name: "Home",
   components: {
     Card,
+    Modal,
   },
   setup() {
     const shopInfo = reactive([]);
