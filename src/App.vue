@@ -3,7 +3,9 @@
     <div class="box">
       <Navbar />
       <transition>
-        <router-view />
+        <div id="main-view">
+          <router-view />
+        </div>
       </transition>
     </div>
     <Footer />
@@ -33,5 +35,8 @@ export default {
 }
 .box {
   flex: 1;
+}
+#main-view {
+  margin-top: 88px;
 }
 </style>

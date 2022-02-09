@@ -1,11 +1,12 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../components/content/Home.vue'
-import Shop from '../components/content/Shop.vue'
-import Connect from '../components/content/Connect.vue'
-import Blog from '../components/content/Blog.vue'
-import About from '../components/content/About.vue'
-import Cart from '../components/content/Cart.vue'
-import Production from '../components/content/Production.vue'
+
+const Home = () => import('../components/content/Home.vue')
+const Shop = () => import('../components/content/Shop.vue')
+const Connect = () => import('../components/content/Connect.vue')
+const Blog = () => import('../components/content/Blog.vue')
+const About = () => import('../components/content/About.vue')
+const Cart = () => import('../components/content/Cart.vue')
+const Production = () => import('../components/content/Production.vue')
 
 const routes = [
     {
@@ -29,6 +30,7 @@ const routes = [
         component: Blog
     },
     {
+
         path: '/Cart',
         component: Cart
     },
@@ -40,5 +42,10 @@ const routes = [
 
 export default createRouter({
     history: createWebHashHistory(),
-    routes
+    routes,
+    scrollBehavior() {
+        return {
+            top: 0
+        }
+    }
 })

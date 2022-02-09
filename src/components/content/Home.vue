@@ -1,4 +1,7 @@
 <template>
+  <div class="w-100 big-banner">
+
+  </div>
   <div class="d-flex container flex-nowrap">
     <div class="col" v-for="i in 6" :key="i"></div>
   </div>
@@ -32,6 +35,7 @@
       Summer Collection New Modren Design
     </p>
   </div>
+  <div class="grid"></div>
 </template>
 
 <script>
@@ -46,8 +50,6 @@ export default {
   setup() {
     const shopInfo = reactive([]);
     const router = useRouter();
-    // const route = useRoute();
-
     onMounted(() => {
       for (let i = 0; i < 9; i++) {
         shopInfo.push({
@@ -59,11 +61,11 @@ export default {
         });
       }
     });
-    let postData = (val) => {
+    let postData = (params) => {
       router.push({
-        name: "Production",
+        path: "/production",
         query: {
-          ...val,
+          ...params,
         },
       });
     };
