@@ -1,5 +1,5 @@
 <template>
-  <div class="card text-start">
+  <div class="card text-start" @click="postData">
     <img class="card-img-top p-2" :src="props.shopInfo.img" alt="Card-img" />
     <div class="card-body">
       <span class="text-black-50">{{ props.shopInfo.cate }}</span>
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { useRouter } from "vue-router";
 export default {
   name: "Card",
   props: {
@@ -34,7 +35,16 @@ export default {
     },
   },
   setup(props) {
-    return { props };
+    const router = useRouter();
+    let postData = () => {
+      router.push({
+        path: "/production",
+        query: {
+          ...props.shopInfo,
+        },
+      });
+    };
+    return { props, postData };
   },
 };
 </script>

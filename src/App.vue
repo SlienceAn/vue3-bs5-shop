@@ -15,7 +15,7 @@
 <script>
 import Navbar from "./components/Navbar.vue";
 import Footer from "./components/Footer.vue";
-import { provide, reactive } from "vue";
+import { provide, reactive, ref } from "vue";
 export default {
   name: "App",
   components: {
@@ -24,7 +24,9 @@ export default {
   },
   setup() {
     const cartData = reactive([]);
+    let loginStatus = ref(false);
     provide("cartData", cartData);
+    provide("loginStatus", loginStatus);
   },
 };
 </script>
@@ -37,6 +39,6 @@ export default {
   flex: 1;
 }
 #main-view {
-  margin-top: 88px;
+  margin-top: 60px;
 }
 </style>

@@ -13,7 +13,8 @@ import {
     faBullhorn,
     faGlobe,
     faTags,
-    faPenAlt
+    faPenAlt,
+    faArrowCircleRight
 } from '@fortawesome/free-solid-svg-icons'
 import {
     faFacebookSquare,
@@ -48,7 +49,8 @@ library.add(
     faBullhorn,
     faGlobe,
     faTags,
-    faPenAlt
+    faPenAlt,
+    faArrowCircleRight
 )
 
 const app = createApp(App)

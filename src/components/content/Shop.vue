@@ -1,12 +1,12 @@
 <template>
   <div class="w-100">
     <title-area title="#stayhome" />
-    <div class="container">
+    <div class="container mt-5">
       <div class="shopList row mt-0 mb-0 m-auto m-auto container">
         <div
           v-for="value in shopInfo"
           :key="value.id"
-          class="col-sm-12 col-md-3 mb-4"
+          class="col-sm-12 col-md-2 mb-4"
         >
           <Card :shopInfo="value" />
         </div>
@@ -28,7 +28,7 @@ export default {
   setup() {
     const shopInfo = reactive([]);
     onMounted(() => {
-      for (let i = 0; i < 9; i++) {
+      for (let i = 0; i < 30; i++) {
         shopInfo.push({
           id: i,
           img: "https://picsum.photos/200/150?random" + (i + 1),
