@@ -14,7 +14,9 @@ import {
     faGlobe,
     faTags,
     faPenAlt,
-    faArrowCircleRight
+    faArrowCircleRight,
+    faCaretLeft,
+    faCaretRight
 } from '@fortawesome/free-solid-svg-icons'
 import {
     faFacebookSquare,
@@ -29,7 +31,6 @@ import {
     faCcMastercard,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
 library.add(
     faShoppingCart,
     faFacebookSquare,
@@ -50,7 +51,9 @@ library.add(
     faGlobe,
     faTags,
     faPenAlt,
-    faArrowCircleRight
+    faArrowCircleRight,
+    faCaretLeft,
+    faCaretRight
 )
 
 const app = createApp(App)

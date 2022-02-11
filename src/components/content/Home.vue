@@ -1,9 +1,13 @@
 <template>
   <div class="grid-wrap">
     <div class="grid-wrap-box" v-for="i in 8" :key="i">
-      <button class="btn btn-success">
+      <!-- <h4>production cate</h4> -->
+      <button
+        class="btn btn-success d-flex align-items-center gap-2"
+        @click="goShop"
+      >
         <span>GO</span>
-        <font-icon :icon="['fa', 'arrow-circle-right']" class="ml-4" />
+        <font-icon :icon="['fa', 'caret-right']" style="font-size: 1.3rem" />
       </button>
     </div>
   </div>
@@ -40,16 +44,27 @@
       Summer Collection New Modren Design
     </p>
   </div>
+  <marquee-text class="marquee-content" :repeat="10" :duration="30">
+    <span
+      v-for="i in 10"
+      :key="i"
+      :style="{
+        backgroundImage: `url('https://picsum.photos/200/200?random=${i}')`,
+      }"
+    />
+  </marquee-text>
 </template>
 
 <script>
 import Card from "../Card.vue";
 import { reactive, onMounted } from "vue";
 import { useRouter } from "vue-router";
+import MarqueeText from "vue-marquee-text-component";
 export default {
   name: "Home",
   components: {
     Card,
+    MarqueeText,
   },
   setup() {
     const shopInfo = reactive([]);
@@ -67,8 +82,8 @@ export default {
     });
     let goShop = () => {
       router.push({
-        path:'/shop'
-      })
+        path: "/shop",
+      });
     };
     return {
       shopInfo,
@@ -94,6 +109,10 @@ export default {
   padding: 25px;
 }
 .grid-wrap-box h4 {
+  background: rgba(3, 3, 3, 0.514);
+  padding: 10px 30px;
+  outline: solid #fff;
+  border-radius: 10px;
 }
 .grid-wrap-box:nth-child(1) {
   background-image: url("https://picsum.photos/500/450?random=1");
@@ -164,5 +183,14 @@ export default {
 .shopList a {
   text-decoration: none;
   color: #333;
+}
+.marquee-text-wrap::before,
+.marquee-text-wrap::after {
+}
+
+.marquee-content span {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
 }
 </style>
