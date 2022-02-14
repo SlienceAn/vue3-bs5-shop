@@ -74,7 +74,7 @@ export default {
         shopInfo.push({
           id: i,
           img: "https://picsum.photos/200/150?random" + (i + 1),
-          price: 120,
+          price: 12000,
           cate: "T-shirts",
           name: "Custom Alisn T-Shirts",
         });
@@ -184,8 +184,25 @@ export default {
   text-decoration: none;
   color: #333;
 }
+.marquee-text-wrap {
+  position: relative;
+}
 .marquee-text-wrap::before,
 .marquee-text-wrap::after {
+  content: "";
+  position: absolute;
+  width: 10%;
+  height: 100%;
+  top: 0;
+  z-index: 1;
+}
+.marquee-text-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, #fff, transparent);
+}
+.marquee-text-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, #fff, transparent);
 }
 
 .marquee-content span {

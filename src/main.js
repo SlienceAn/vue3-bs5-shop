@@ -57,6 +57,11 @@ library.add(
 )
 
 const app = createApp(App)
+app.directive('price', {
+    mounted(el) {
+        console.log(el.innerHTML)
+    }
+})
 app.component('font-icon', FontAwesomeIcon)
 app.use(router)
 app.mount('#app')

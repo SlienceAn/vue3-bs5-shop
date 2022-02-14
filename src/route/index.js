@@ -7,6 +7,7 @@ const Blog = () => import('../components/content/Blog.vue')
 const About = () => import('../components/content/About.vue')
 const Cart = () => import('../components/content/Cart.vue')
 const Production = () => import('../components/content/Production.vue')
+const Login = () => import('../components/content/Login.vue')
 
 const routes = [
     {
@@ -37,6 +38,10 @@ const routes = [
     {
         path: '/Production',
         component: Production
+    },
+    {
+        path: '/Login',
+        component: Login
     }
 ]
 

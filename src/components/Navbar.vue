@@ -13,6 +13,9 @@
             <font-icon icon="shopping-cart" style="font-size: 1.3rem" />
           </router-link>
         </li>
+        <li>
+          <router-link to="/Login">Login</router-link>
+        </li>
       </ul>
     </div>
   </nav>
@@ -76,6 +79,6 @@ li a:hover {
   border-bottom: 1px solid rgb(28, 196, 131);
   transition: all;
   transform: scale(1.5);
-  transition-duration: .5s;
+  transition-duration: 0.5s;
 }
 </style>

@@ -1,8 +1,32 @@
 <template>
   <div class="container py-5">
-    <div class="d-flex w-75 m-auto mb-5">
-      <img :src="params.img" alt="production-img" />
-      <div>{{ params.price }}</div>
+    <div class="row w-75 m-auto mb-5">
+      <div
+        class="production-img col-md-4 col-xs-12"
+        :style="{
+          backgroundImage: `url(${params.img})`,
+        }"
+      />
+      <div class="production-content col-md-8 col-xs-12">
+        <div class="card h-100">
+          <div class="card-header">
+            <h3>
+              <strong>{{ params.name }}</strong>
+            </h3>
+          </div>
+          <div class="card-body">
+            <span>
+              $
+              <strong v-price> {{ params.price }}</strong>
+            </span>
+            <div class="d-flex">
+              <button class="btn btn-success">-</button>
+              <input type="text" class="form-control" />
+              <button class="btn btn-success">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="w-75 m-auto">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -38,7 +62,11 @@
           role="tabpanel"
           aria-labelledby="home-tab"
         >
-          Production Info
+          <ul>
+            <li>Production Info</li>
+            <li>Production Info</li>
+            <li>Production Info</li>
+          </ul>
         </div>
         <div
           class="tab-pane"
@@ -46,7 +74,11 @@
           role="tabpanel"
           aria-labelledby="messages-tab"
         >
-          messages
+          <ul>
+            <li>Messages</li>
+            <li>Messages</li>
+            <li>Messages</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -54,14 +86,20 @@
 </template>
 
 <script>
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { reactive } from "vue";
 
 export default {
   name: "Production",
   setup() {
+    const router = useRouter();
     const route = useRoute();
     const params = reactive(route.query);
+    router.beforeEach(() => {
+      if (Object.values(route.query).length === 0) {
+        router.push("/Shop");
+      }
+    });
     return {
       params,
     };
@@ -70,4 +108,20 @@ export default {
 </script>
 
 <style scoped>
+.production-img {
+  height: 40vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  outline: 0.5px solid rgba(133, 132, 132, 0.5);
+}
+.production-content {
+  padding-left: 25px;
+  padding-right: 0;
+}
+.production-content span {
+  color: red;
+  font-size: 25px;
+}
 </style>
