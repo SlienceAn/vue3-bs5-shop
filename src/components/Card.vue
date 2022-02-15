@@ -16,7 +16,7 @@
       </div>
       <div class="d-flex justify-content-between">
         <p class="card-text m-0 text-success">
-          <strong>${{ props.shopInfo.price }}</strong>
+          <strong v-price>{{ props.shopInfo.price }}</strong>
         </p>
         <font-icon :icon="['fa', 'shopping-cart']" />
       </div>

@@ -16,7 +16,8 @@ import {
     faPenAlt,
     faArrowCircleRight,
     faCaretLeft,
-    faCaretRight
+    faCaretRight,
+    faWindowClose
 } from '@fortawesome/free-solid-svg-icons'
 import {
     faFacebookSquare,
@@ -53,13 +54,14 @@ library.add(
     faPenAlt,
     faArrowCircleRight,
     faCaretLeft,
-    faCaretRight
+    faCaretRight,
+    faWindowClose
 )
 
 const app = createApp(App)
 app.directive('price', {
     mounted(el) {
-        console.log(el.innerHTML)
+        el.innerHTML = new Intl.NumberFormat().format(el.innerHTML)
     }
 })
 app.component('font-icon', FontAwesomeIcon)

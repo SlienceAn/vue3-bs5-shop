@@ -25,8 +25,12 @@ export default {
   setup() {
     const cartData = reactive([]);
     let loginStatus = ref(false);
+    let insertCart = (value) => {
+      cartData.push(value);
+    };
     provide("cartData", cartData);
-    provide("loginStatus", loginStatus);
+    provide("insertCart", insertCart);
+    provide("loginStatus", loginStatus.value);
   },
 };
 </script>
