@@ -21,8 +21,8 @@
             </span>
             <div class="d-flex">
               <button class="btn btn-success">-</button>
-              <input type="text" class="form-control" />
-              <button class="btn btn-success">+</button>
+              <input type="text" class="form-control" value="1" />
+              <button class="btn btn-success" @click="insertCart('TEST')">+</button>
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@
 
 <script>
 import { useRoute, useRouter } from "vue-router";
-import { reactive } from "vue";
+import { reactive, inject } from "vue";
 
 export default {
   name: "Production",
@@ -95,13 +95,16 @@ export default {
     const router = useRouter();
     const route = useRoute();
     const params = reactive(route.query);
+    const insertCart = inject("insertCart");
+    const cartData = inject("cartData");
+
     router.beforeEach(() => {
-      if (Object.values(route.query).length === 0) {
-        router.push("/Shop");
-      }
+   
     });
     return {
       params,
+      insertCart,
+      cartData,
     };
   },
 };

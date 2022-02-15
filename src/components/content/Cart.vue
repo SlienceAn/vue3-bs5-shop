@@ -9,7 +9,7 @@
       <button class="btn p-0">
         <font-icon :icon="['fa', 'window-close']" class="cart-icon" />
       </button>
-      <div class="cart-img">Img</div>
+      <div class="cart-img"/>
       <div class="cart-name">Name</div>
       <div class="cart-count d-flex">
         <button class="btn btn-secondary">+</button>
@@ -36,7 +36,7 @@ export default {
       console.log(cartData);
     });
     let remove = () => {
-      
+
     };
     return {
       cartData,
