@@ -17,7 +17,7 @@ import {
     faArrowCircleRight,
     faCaretLeft,
     faCaretRight,
-    faWindowClose
+    faWindowClose,
 } from '@fortawesome/free-solid-svg-icons'
 import {
     faFacebookSquare,

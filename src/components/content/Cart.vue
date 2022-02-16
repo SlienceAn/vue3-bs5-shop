@@ -1,30 +1,39 @@
 <template>
   <title-area title="#cart" text="Add your coupon code & SAVE upto 70%" />
-  <div class="container mt-5 mb-5">
+  <div
+    class="container mt-5 mb-5 text-center"
+    v-if="Object.keys(cartData).length === 0"
+  >
+    <strong> 尚無商品加入購物車</strong>
+  </div>
+  <div class="container mt-5 mb-5" v-else>
     <div
       class="cart d-flex justify-content-between align-items-center"
-      v-for="i in 3"
-      :key="i"
+      v-for="i in cartData"
+      :key="i.id"
     >
       <button class="btn p-0">
         <font-icon :icon="['fa', 'window-close']" class="cart-icon" />
       </button>
-      <div class="cart-img"/>
-      <div class="cart-name">Name</div>
+      <div class="cart-img" :style="{ backgroundImage: `url(${i.img})` }" />
+      <div class="cart-name">{{ i.name }}</div>
       <div class="cart-count d-flex">
-        <button class="btn btn-secondary">+</button>
+        <button class="btn btn-success">+</button>
         <input type="text" value="1" />
-        <button class="btn btn-secondary">-</button>
+        <button class="btn btn-success">-</button>
       </div>
-      <div class="cart-money" v-price>120000</div>
+      <div class="cart-money" v-price>{{ i.price }}</div>
     </div>
-    <div class="cart-footer"></div>
+    <div class="cart-footer">
+      <span>Total : $ </span>
+      <strong>{{ totalMoney }}</strong>
+    </div>
   </div>
 </template>
 
 <script>
 import TitleArea from "../TitleArea.vue";
-import { inject, onMounted } from "vue";
+import { inject, onMounted, ref } from "vue";
 export default {
   name: "Cart",
   components: {
@@ -32,15 +41,17 @@ export default {
   },
   setup() {
     const cartData = inject("cartData");
+    let totalMoney = ref(0);
     onMounted(() => {
-      console.log(cartData);
+      if (Object.keys(cartData).length !== 0) {
+        for (let i in cartData) {
+          totalMoney.value += parseInt(cartData[i].price);
+        }
+      }
     });
-    let remove = () => {
-
-    };
     return {
       cartData,
-      remove,
+      totalMoney,
     };
   },
 };
@@ -77,5 +88,11 @@ export default {
   color: red;
   font-size: 25px;
   font-weight: bolder;
+}
+.cart-footer {
+  color: red;
+  font-size: 28px;
+  text-align: right;
+  padding: 15px 0px;
 }
 </style>

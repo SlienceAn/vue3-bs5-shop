@@ -65,7 +65,7 @@ export default {
         shopInfo.push({
           id: i,
           img: "https://picsum.photos/200/150?random" + (i + 1),
-          price: 120,
+          price: 256784,
           cate: "T-shirts",
           name: "Custom Alisn T-Shirts",
         });

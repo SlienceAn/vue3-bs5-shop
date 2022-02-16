@@ -22,7 +22,9 @@
             <div class="d-flex">
               <button class="btn btn-success">-</button>
               <input type="text" class="form-control" value="1" />
-              <button class="btn btn-success" @click="insertCart('TEST')">+</button>
+              <button class="btn btn-success" @click="insertCart(params)">
+                +
+              </button>
             </div>
           </div>
         </div>
@@ -99,7 +101,7 @@ export default {
     const cartData = inject("cartData");
 
     router.beforeEach(() => {
-   
+      console.log(cartData); //Can use
     });
     return {
       params,
