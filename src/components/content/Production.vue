@@ -19,12 +19,26 @@
               $
               <strong v-price> {{ params.price }}</strong>
             </span>
-            <div class="d-flex">
-              <button class="btn btn-success">-</button>
-              <input type="text" class="form-control" value="1" />
-              <button class="btn btn-success" @click="insertCart(params)">
-                +
+            <div class="d-flex w-25">
+              <button
+                class="btn btn-success"
+                @click="itemNum--"
+                :disabled="itemNum === 1"
+              >
+                -
               </button>
+              <input
+                type="text"
+                class="form-control text-center"
+                v-model="itemNum"
+              />
+              <button class="btn btn-success" @click="itemNum++">+</button>
+            </div>
+            <div>
+              <button class="btn btn-success" @click="insertCart(params)">
+                加入購物車
+              </button>
+              <button class="btn btn-success">直接購買</button>
             </div>
           </div>
         </div>
@@ -88,25 +102,22 @@
 </template>
 
 <script>
-import { useRoute, useRouter } from "vue-router";
-import { reactive, inject } from "vue";
-
+import { useRoute } from "vue-router";
+import { reactive, inject, ref } from "vue";
 export default {
   name: "Production",
   setup() {
-    const router = useRouter();
     const route = useRoute();
-    const params = reactive(route.query);
-    const insertCart = inject("insertCart");
-    const cartData = inject("cartData");
-
-    router.beforeEach(() => {
-      console.log(cartData); //Can use
+    let itemNum = ref(1);
+    const params = reactive({
+      ...route.query,
+      itemNum: itemNum.value,
     });
+    const insertCart = inject("insertCart");
     return {
       params,
       insertCart,
-      cartData,
+      itemNum,
     };
   },
 };
@@ -128,5 +139,8 @@ export default {
 .production-content span {
   color: red;
   font-size: 25px;
+}
+.btn {
+  border-radius: 0;
 }
 </style>

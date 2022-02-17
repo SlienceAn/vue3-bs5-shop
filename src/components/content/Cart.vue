@@ -25,7 +25,7 @@
       <div class="cart-money" v-price>{{ i.price }}</div>
     </div>
     <div class="cart-footer">
-      <span>Total : $ </span>
+      <span>total : $ </span>
       <strong>{{ totalMoney }}</strong>
     </div>
   </div>
@@ -43,6 +43,7 @@ export default {
     const cartData = inject("cartData");
     let totalMoney = ref(0);
     onMounted(() => {
+      console.log(cartData);
       if (Object.keys(cartData).length !== 0) {
         for (let i in cartData) {
           totalMoney.value += parseInt(cartData[i].price);
@@ -60,8 +61,10 @@ export default {
 <style scoped>
 .cart {
   width: 100%;
-  outline: 0.5px solid rgba(122, 121, 121, 0.5);
+  outline: 0.5px solid rgba(179, 179, 179, 0.5);
   padding: 10px 45px;
+  margin-bottom: 10px;
+  border-radius: 10px;
 }
 .cart-icon {
   font-size: 2rem;
@@ -90,8 +93,8 @@ export default {
   font-weight: bolder;
 }
 .cart-footer {
-  color: red;
-  font-size: 28px;
+  color: rgb(230, 5, 5);
+  font-size: 20px;
   text-align: right;
   padding: 15px 0px;
 }
