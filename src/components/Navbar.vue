@@ -1,22 +1,32 @@
 <template>
-  <nav class="navbar d-flex position-fixed">
-    <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light position-fixed">
+    <div class="container-fluid">
       <img src="../assets/logo.png" alt="missing" width="30" />
-      <ul class="d-flex p-0 m-0 align-items-center">
-        <li v-for="value in router" :key="value.name">
-          <router-link :to="value.path">
-            {{ value.name }}
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/Cart">
-            <font-icon icon="shopping-cart" style="font-size: 1.3rem" />
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/Login">Login</router-link>
-        </li>
-      </ul>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarToggler"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li v-for="value in router" :key="value.name">
+            <router-link :to="value.path">
+              {{ value.name }}
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/Cart">
+              <font-icon icon="shopping-cart" style="font-size: 1.3rem" />
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/Login">Login</router-link>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 </template>
