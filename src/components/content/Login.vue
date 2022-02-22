@@ -3,7 +3,13 @@
     <form class="col-md-4 col-xs-12">
       <h1 class="text-center">Sign in</h1>
       <div class="block-cube block-input mb-5 mt-5">
-        <input type="text" class="form-input" v-model="UserData.account" />
+        <input
+          type="text"
+          class="form-input"
+          v-model="UserData.account"
+          placeholder="Input User Name"
+          v-focus
+        />
         <div class="bg-top">
           <div class="bg-inner" />
         </div>
@@ -12,7 +18,12 @@
         </div>
       </div>
       <div class="block-cube block-input mb-5">
-        <input type="text" class="form-input" v-model="UserData.password" />
+        <input
+          type="text"
+          class="form-input"
+          v-model="UserData.password"
+          placeholder="Input User Password"
+        />
         <div class="bg-top">
           <div class="bg-inner" />
         </div>
@@ -37,10 +48,17 @@
 import { reactive } from "vue";
 export default {
   name: "Login",
+  directives: {
+    focus: {
+      mounted(el) {
+        el.focus();
+      },
+    },
+  },
   setup() {
     const UserData = reactive({
-      account: "Input User Name",
-      password: "Input User Password",
+      account: "",
+      password: "",
     });
 
     return {
@@ -137,7 +155,7 @@ export default {
 .block-button button:hover ~ .bg-top {
   background: rgb(8, 84, 199);
 }
-.block-button button:hover~ .bg-right{
+.block-button button:hover ~ .bg-right {
   background: rgb(4, 40, 158);
 }
 </style>

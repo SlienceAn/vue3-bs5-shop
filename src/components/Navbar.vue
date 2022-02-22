@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light position-fixed">
-    <div class="container-fluid">
+    <div class="container">
       <img src="../assets/logo.png" alt="missing" width="30" />
       <button
         class="navbar-toggler"
@@ -11,7 +11,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarToggler">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav">
           <li v-for="value in router" :key="value.name">
             <router-link :to="value.path">
               {{ value.name }}
@@ -74,6 +74,7 @@ nav {
 }
 ul {
   list-style: none;
+  margin-left: auto;
 }
 
 li a {
